@@ -47,3 +47,91 @@ python pointesKonigsberg.py
 ## Experimentos sugeridos
 
 Adicione uma ponte entre dois vértices e recalcule os graus. Observe como a paridade muda. Depois, altere a origem da DFS e compare a ordem de visita. Para estudar o passeio em si, o próximo passo seria implementar um algoritmo de construção de caminho de Euler, como Hierholzer.
+
+
+
+## detalhamento para leigo --- Algoritimo de Hierholzer
+
+
+1. grafo_copia = {v: vizinhos[:] for v, vizinhos in grafo.items()}
+grafo.items() → retorna pares (chave, valor) do dicionário.
+Exemplo: para grafo = {'A': ['B','C'], 'B':['A']}, o .items() gera:
+
+Código
+('A', ['B','C'])
+('B', ['A'])
+for v, vizinhos in grafo.items() → significa:
+
+v recebe a chave (o vértice, como 'A', 'B'...).
+
+vizinhos recebe a lista associada (os vizinhos daquele vértice).
+
+vizinhos[:] → é uma cópia da lista inteira.
+
+[:] é um “fatiamento” que pega todos os elementos.
+
+Isso evita modificar a lista original.
+
+{v: vizinhos[:] for v, vizinhos in grafo.items()} → cria um novo dicionário, onde cada chave v tem como valor uma cópia da lista de vizinhos.
+
+2. graus = {v: len(vizinhos) for v, vizinhos in grafo.items()}
+Estrutura parecida com a anterior.
+
+len(vizinhos) → conta quantos elementos tem a lista de vizinhos (ou seja, o grau do vértice).
+
+Resultado: um dicionário com cada vértice e seu grau.
+Exemplo: {'A': 5, 'B': 3, 'C': 4, 'D': 2}.
+
+3. inicio = impares[0] if impares else list(grafo.keys())[0]
+impares[0] → pega o primeiro vértice da lista de ímpares.
+
+[0] significa “primeiro elemento”.
+
+if impares else ... → é um “if curto”:
+
+Se impares não está vazio, usa o primeiro ímpar.
+
+Se está vazio, usa o que vem depois do else.
+
+grafo.keys() → retorna todas as chaves do dicionário (os vértices).
+Exemplo: dict_keys(['A','B','C','D']).
+
+list(grafo.keys())[0] → transforma em lista e pega o primeiro vértice.
+
+4. grafo_copia[v]
+Aqui, v é um vértice (como 'A').
+
+grafo_copia[v] acessa a lista de vizinhos desse vértice.
+Exemplo: se v = 'A', então grafo_copia['A'] = ['B','B','C','C','D'].
+
+5. grafo_copia[u]
+u é o vizinho escolhido de v.
+
+Exemplo: se v = 'A' e escolhemos u = 'B', então grafo_copia['B'] acessa a lista de vizinhos de 'B'.
+
+6. caminho[::-1]
+Isso é um fatiamento invertido.
+
+[::] significa “pega todos os elementos”.
+
+O -1 significa “na ordem inversa”.
+
+Exemplo:
+
+python
+lista = [1,2,3,4]
+lista[::-1]   # resultado: [4,3,2,1]
+Usamos isso porque o algoritmo constrói o caminho ao contrário, então no final precisamos inverter.
+
+🎯 Resumindo
+items() → percorre chave e valor do dicionário.
+
+[:] → copia uma lista inteira.
+
+[0] → primeiro elemento de uma lista.
+
+keys() → retorna todas as chaves do dicionário.
+
+grafo_copia[v] → acessa a lista de vizinhos do vértice v.
+
+[::-1] → inverte a ordem de uma lista.
