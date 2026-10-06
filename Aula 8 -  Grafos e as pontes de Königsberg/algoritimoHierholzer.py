@@ -10,11 +10,11 @@
 
 def caminho_euleriano(grafo):
     # Copiar o grafo para não destruir o original
-    grafo_copia = {v: vizinhos[:] for v, vizinhos in grafo.items()}
+    grafo_copia = {vertice: vizinhos[:] for vertice, vizinhos in grafo.items()}
 
     # Encontrar vértices ímpares
-    graus = {v: len(vizinhos) for v, vizinhos in grafo.items()}
-    impares = [v for v, g in graus.items() if g % 2 == 1]
+    graus = {vertice: len(vizinhos) for vertice, vizinhos in grafo.items()}
+    impares = [vertice for vertice, g in graus.items() if g % 2 == 1]
 
     # Se não houver 0 ou 2 ímpares, não existe caminho
     if len(impares) not in (0, 2):
@@ -27,10 +27,10 @@ def caminho_euleriano(grafo):
     pilha = [inicio]
 
     while pilha:
-        v = pilha[-1]
-        if grafo_copia[v]:
-            u = grafo_copia[v].pop()   # pega um vizinho
-            grafo_copia[u].remove(v)   # remove a ponte dos dois lados
+        vertice = pilha[-1]
+        if grafo_copia[vertice]:
+            u = grafo_copia[vertice].pop()   # pega um vizinho
+            grafo_copia[u].remove(vertice)   # remove a ponte dos dois lados
             pilha.append(u)
         else:
             caminho.append(pilha.pop())
