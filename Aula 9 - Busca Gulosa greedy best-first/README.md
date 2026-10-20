@@ -1,24 +1,6 @@
-# Aula 9 - Busca Gulosa (Greedy Best-First)
 
-Este exercício implementa a busca de um caminho em um labirinto representado
-por uma grade. O objetivo é sair da posição `I` (início) e chegar à posição
-`F` (fim), atravessando somente as casas livres.
 
-Na representação do labirinto:
-
-- `#` representa uma parede;
-- `.` representa uma casa livre;
-- `I` representa o início;
-- `F` representa a saída;
-- `*` marca o caminho encontrado na saída do programa.
-
-## Implementações
-
-O arquivo [`labirinto.py`](./labirinto.py) converte a grade em um grafo. Cada
-casa livre é um vértice, e existe uma aresta entre duas casas que são
-vizinhas na vertical ou na horizontal.
-
-O programa compara três estratégias:
+Labirinto 
 
 ### Busca em profundidade (DFS)
 
@@ -68,13 +50,4 @@ Isso não significa que ela seja sempre melhor: o resultado depende do desenho
 do labirinto e da heurística utilizada. A BFS é a referência para garantir o
 menor número de movimentos neste tipo de grade.
 
-## Como executar
 
-No terminal, a partir da raiz do repositório, execute:
-
-```powershell
-python ".\Aula 9 - Busca Gulosa greedy best-first\labirinto.py"
-```
-
-O programa imprime o labirinto com o caminho marcado e, ao final, uma tabela
-comparativa entre as três buscas.
