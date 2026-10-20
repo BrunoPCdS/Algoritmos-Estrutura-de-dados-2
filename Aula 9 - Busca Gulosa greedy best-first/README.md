@@ -10,8 +10,7 @@ vizinhos e não é necessariamente o menor caminho.
 
 ### Busca em largura (BFS)
 
-A BFS usa uma fila e explora o grafo por níveis. Como cada movimento possui o
-mesmo custo, ela garante o menor caminho em quantidade de movimentos. Seu custo
+A BFS usa uma fila e explora o grafo por níveis. Como cada movimento possui o mesmo custo, ela garante o menor caminho em quantidade de movimentos. Seu custo
 é `O(V + E)`, em que `V` é o número de casas livres e `E` é o número de
 conexões entre elas.
 
