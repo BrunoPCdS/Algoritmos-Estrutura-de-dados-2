@@ -24,6 +24,7 @@ O objetivo deste README é servir como ponto de entrada para:
 | [Aula 6](./Aula%206%20-%20%C3%81rvore%20Bin%C3%A1ria%20de%20Busca/) | Árvore Binária de Busca (BST) | Nós, recursão, inserção e percursos |
 | [Aula 7](./Aula%207%20-%20%C3%81rvores%20Bin%C3%A1rias%20e%20Balanceamento/) | Árvores binárias e balanceamento | Rotações e árvores AVL |
 | [Aula 8](./Aula%208%20-%20%20Grafos%20e%20as%20pontes%20de%20K%C3%B6nigsberg/) | Grafos e pontes de Königsberg | Lista de adjacência, graus, Euler e DFS |
+| [Aula 9](./Aula%209%20-%20Busca%20Gulosa%20greedy%20best-first/) | Busca gulosa em labirinto | Grafos, DFS, BFS, heurística e fila de prioridade |
 
 > A numeração não contém uma Aula 4 neste conjunto de arquivos.
 
@@ -187,6 +188,17 @@ um passeio de Euler e percorre o grafo com busca em profundidade (DFS). A DFS
 com controle de visitados custa `O(V + E)`, considerando a representação por
 listas de adjacência.
 
+### Aula 9 — busca gulosa
+
+```powershell
+cd "..\Aula 9 - Busca Gulosa greedy best-first"
+python labirinto.py
+```
+
+O programa compara DFS, BFS e busca gulosa usando a distância Manhattan como
+heurística. A documentação dos resultados está no
+[README da Aula 9](./Aula%209%20-%20Busca%20Gulosa%20greedy%20best-first/).
+
 ## Testes e experimentos
 
 Não existe, atualmente, uma suíte automatizada única para todo o repositório.
@@ -207,6 +219,8 @@ Para estudar e validar o comportamento:
    das rotações.
 8. Na Aula 8, adicione ou remova uma ponte e observe a mudança na paridade dos
    graus.
+9. Na Aula 9, altere as paredes do labirinto e compare o caminho e a quantidade
+   de casas visitadas por cada busca.
 
 Ao comparar algoritmos, mantenha constantes o tamanho e o conteúdo da entrada.
 Uma medição com 20 elementos não deve ser comparada diretamente com outra feita
@@ -221,7 +235,8 @@ com 1 milhão de elementos.
 5. Desenhe a BST da Aula 6 antes de executar os percursos.
 6. Use as rotações da Aula 7 para entender como o balanceamento reduz a altura.
 7. Modele o problema das pontes como um grafo e diferencie Euler de DFS.
-8. Para cada exercício, identifique entrada, saída, estrutura usada,
+8. Compare BFS e busca gulosa em diferentes labirintos na Aula 9.
+9. Para cada exercício, identifique entrada, saída, estrutura usada,
    complexidade de tempo e complexidade de memória.
 
 ## Organização dos arquivos
